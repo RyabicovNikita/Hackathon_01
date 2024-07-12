@@ -1,7 +1,6 @@
 export class Menu {
   constructor(selector) {
-    this.el = document.querySelector(selector)
-
+    this.el = document.querySelector(selector);
     document.body.addEventListener('click', event => {
       if (event.target.offsetParent !== this.el) {
         this.close()
