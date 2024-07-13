@@ -5,12 +5,7 @@ export default class MessageModule extends Module {
   constructor(type, text) {
     super(type, text)
   }
-  // createMessageElement(message) {
-  //   const messageElement = document.createElement('div')
-  //   messageElement.className = 'message-element'
-  //   messageElement.innerText = message
-  //   document.body.appendChild(messageElement)
-  // }
+
   trigger() {
     //импортированная функция, даёт рандмное число из указанных
     const resultOfRandom = random(0, 13)
@@ -40,11 +35,11 @@ export default class MessageModule extends Module {
     messageElement.className = 'message-element'
     messageElement.innerText = result
     document.body.appendChild(messageElement)
-
+    //создаем функцию удаления элемента
     function removeElement() {
       messageElement.remove()
     }
-
+    //удаляем элемент спустя некоторое время
     setTimeout(removeElement, 2500)
   }
 }
