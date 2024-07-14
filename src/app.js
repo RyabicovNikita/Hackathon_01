@@ -2,7 +2,7 @@
 import { onContextMenu } from './actionsForEvent'
 import ContextMenu from './menu'
 import BackgroundModule from './modules/background.module'
-import ShapeModule from './modules/shape.module'
+import ShapeModule from './modules/shape/shape.module'
 import MessageModule from './modules/message/message.module'
 import ClicksModule from './modules/clicks/clicks.module'
 import TimerModule from './modules/timer/timer.module'
