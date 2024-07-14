@@ -1,12 +1,14 @@
 
-import { onContextMenu } from './actionsForEvent';
-import ContextMenu from './menu';
-import BackgroundModule from './modules/background.module';
-import ShapeModule from './modules/shape/shape.module';
-import MessageModule from './modules/message/message.module';
-import ClicksModule from './modules/clicks/clicks.module';
+import { onContextMenu } from './actionsForEvent'
+import ContextMenu from './menu'
+import BackgroundModule from './modules/background.module'
+import ShapeModule from './modules/shape/shape.module'
+import MessageModule from './modules/message/message.module'
+import ClicksModule from './modules/clicks/clicks.module'
+import TimerModule from './modules/timer/timer.module'
+import MenuColorChangerModule from './modules/menu.color.changer.module';
 import ThemeModule from './modules/theme/theme.module';
-import './styles.css';
+import './styles.css'
 
 //Создаём экземпляр класса контестного меню
 const contextMenu = new ContextMenu();
@@ -19,10 +21,17 @@ contextMenu.add(backgroundModule);
 const shapeModule = new ShapeModule('shape', 'Поменять фигуру');
 contextMenu.add(shapeModule);
 
+const changeColor = new MenuColorChangerModule('color', 'Сменить цвет контекстного меню');
+contextMenu.add(changeColor);
+
 const clicksModule = new ClicksModule('clicks', 'Считать клики');
 contextMenu.add(clicksModule);
+
 const randomMessage = new MessageModule('randomMessage', 'Cлучайное сообщение');
 contextMenu.add(randomMessage);
+
+const timerModule = new TimerModule('timer', 'Засечь таймер')
+contextMenu.add(timerModule);
 
 const themeColor = new ThemeModule('clicks', 'Сменить тему');
 contextMenu.add(themeColor);

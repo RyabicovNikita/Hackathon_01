@@ -1,0 +1,15 @@
+.timer-element {
+  position: absolute;
+  right: 25px;
+  font-weight: bold;
+  bottom: 25px;
+  display: flex;
+  font-size: 28px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border: solid #1b1a1a 2px;
+  border-radius: 15px;
+  width: 300px;
+  height: 150px;
+}
