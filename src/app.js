@@ -7,14 +7,14 @@ import MessageModule from './modules/message/message.module'
 import ClicksModule from './modules/clicks/clicks.module'
 import TimerModule from './modules/timer/timer.module'
 import MenuColorChangerModule from './modules/menu.color.changer.module';
+import ThemeModule from './modules/theme/theme.module';
 import './styles.css'
 
 //Создаём экземпляр класса контестного меню
-const contextMenu = new ContextMenu()
+const contextMenu = new ContextMenu();
 
 //Здесь вызываем метод .add, передавая туда модуль, тем самым добавляя его в меню (не забывая импортировать)
 //Добавляем модуль в контекстное меню
-
 const backgroundModule = new BackgroundModule('background', 'Поменять цвет');
 contextMenu.add(backgroundModule);
 
@@ -31,7 +31,10 @@ const randomMessage = new MessageModule('randomMessage', 'Cлучайное со
 contextMenu.add(randomMessage);
 
 const timerModule = new TimerModule('timer', 'Засечь таймер')
-contextMenu.add(timerModule)
+contextMenu.add(timerModule);
+
+const themeColor = new ThemeModule('clicks', 'Сменить тему');
+contextMenu.add(themeColor);
 
 //Listener на вызов контекстного меню при нажатии ПКМ
-document.body.addEventListener('contextmenu', onContextMenu.bind(contextMenu))
+document.body.addEventListener('contextmenu', onContextMenu.bind(contextMenu));
