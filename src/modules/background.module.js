@@ -3,7 +3,7 @@ import { Module } from '../core/module'
 export default class BackgroundModule extends Module {
     constructor(type, text) {
         super(type, text);
-    }т
+    }
     trigger() {
         function randomColor() {
             const r = Math.floor(Math.random() * 256);
