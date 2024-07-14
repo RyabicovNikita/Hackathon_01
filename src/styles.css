@@ -46,6 +46,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: absolute;
+  right: 15px;
+  top: 30px;
 }
 
 .history-list {
