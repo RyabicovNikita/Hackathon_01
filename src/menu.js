@@ -25,8 +25,10 @@ export default class ContextMenu extends Menu {
         //Если модуль передан и принадлежит к классу Module
         if (newModule && newModule instanceof Module) {
             //Т.к. метод toHTML() отдаёт нам String чтобы повесить addEventListener нужно сначала преобразовать его к HTML
-            const elementMenu = document.createElement('div');
-            elementMenu.innerHTML = newModule.toHTML();
+            const blockDiv = document.createElement('div');
+            blockDiv.innerHTML = newModule.toHTML();
+            const elementMenu = blockDiv.querySelector('.menu-item');
+            if(!elementMenu) return;
             elementMenu.addEventListener('click', onElementMenuClick.bind(newModule));
             //Добавляем модуль в контекстное меню
             this.el.append(elementMenu);
