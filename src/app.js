@@ -3,6 +3,7 @@ import { onContextMenu } from './actionsForEvent';
 import { ContextMenu } from './menu';
 import BackgroundModule from './modules/background.module';
 import ShapeModule from './modules/shape.module';
+import MenuColorChanger from './modules/menu.color.changer';
 import './styles.css'
 
 
@@ -16,6 +17,7 @@ contextMenu.add(backgroundModule);
 
 const shapeModule = new ShapeModule('shape', 'Поменять фигуру');
 contextMenu.add(shapeModule);
+
 
 //Здесь вызываем метод .add, передавая туда модуль, тем самым добавляя его в меню (не забывая импортировать)
 

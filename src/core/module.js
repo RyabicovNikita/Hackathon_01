@@ -1,4 +1,4 @@
-export class Module {
+export  class Module {
   constructor(type, text) {
     if (!type) {
       throw new Error('Please specify "type" param')
