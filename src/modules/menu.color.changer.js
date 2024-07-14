@@ -3,9 +3,6 @@ import { Module } from '../core/module.js'
 import { getRandomColor } from '../utils.js'
 
 export default class MenuColorChanger extends Module {
-    constructor(type, text) {
-        super(type, text);
-    }
     trigger() {
         const menu = document.querySelector('.menu');
         const menuItems = document.querySelectorAll('.menu-item');
