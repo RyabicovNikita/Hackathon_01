@@ -21,6 +21,8 @@ export default class TimerModule extends Module {
     let seconds = parseInt(time);
     //Проверяем на тип
     if (!isNaN(seconds) && seconds > 0) {
+      const timerModule = document.body.querySelector(".timer-element");
+      if (timerModule) return;
       //создаём элемент в DOM
       const timerElement = document.createElement("div");
       document.body.appendChild(timerElement);
