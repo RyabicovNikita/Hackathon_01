@@ -18,24 +18,4 @@ export function onElementMenuClick() {
   }
 }
 
-// Обработчик для одиночных кликов
-// Увеличивает счетчик одиночных кликов и обновляет окно статистики.
-export function handleClickClicksModule(event) {
-  event.preventDefault();
-  if (this.startTime) {
-    this.setClickCount(1);
-    console.log("Зафиксирован одинарный клик.");
-    this.updateClicksInfoWindow();
-  }
-}
 
-// Обработчик для двойных кликов
-// Увеличивает счетчик двойных кликов и обновляет окно статистики.
-export function handleDoubleClickClicksModule(event) {
-  event.preventDefault();
-  if (this.startTime) {
-    this.setDoubleClickCount(1);
-    console.log("Зафиксирован двойной клик.");
-    this.updateClicksInfoWindow();
-  }
-}
