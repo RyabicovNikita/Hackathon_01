@@ -36,6 +36,6 @@ export default class ShapeModule extends Module {
                 shape.style.transition = 'opacity 10s';
             }, 0);
         }
-        document.addEventListener(`click`, generateRandomShape);
+        generateRandomShape();
     }
 }
