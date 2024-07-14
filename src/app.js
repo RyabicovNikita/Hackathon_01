@@ -18,6 +18,8 @@ contextMenu.add(backgroundModule);
 const shapeModule = new ShapeModule('shape', 'Поменять фигуру');
 contextMenu.add(shapeModule);
 
+const chengeColor = new MenuColorChanger('color', 'Сменить цвет контекстного меню');
+contextMenu.add(chengeColor);
 
 //Здесь вызываем метод .add, передавая туда модуль, тем самым добавляя его в меню (не забывая импортировать)
 
