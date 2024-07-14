@@ -1,16 +1,28 @@
 import { Module } from "../core/module";
+import {
+  handleClickClicksModule,
+  handleDoubleClickClicksModule,
+} from "../actionsForEvent";
 
 export class ClicksModule extends Module {
+  #clickCount;
+  #doubleClickCount;
+  #duration;
   constructor(type, text) {
     super(type, text);
-    this.clickCount = 0;
-    this.doubleClickCount = 0;
+    this.#clickCount = 0;
+    this.#doubleClickCount = 0;
     this.startTime = null;
-    this.duration = 0;
-    this.handleClick = this.handleClick.bind(this);
-    this.handleDoubleClick = this.handleDoubleClick.bind(this);
+    this.#duration = 0;
   }
 
+  set setClickCount(count) {
+    this.#clickCount += count;
+  }
+
+  set setDoubleClickCount(count) {
+    this.#doubleClickCount += count;
+  }
   //  Метод запускает модуль, запрашивая у пользователя время для отсчета.
   //  Устанавливает обработчики событий для кликов и создает окно статистики.
   trigger() {
@@ -21,7 +33,7 @@ export class ClicksModule extends Module {
 
     if (durationInSecondsInput !== null && durationInSecondsInput > 0) {
       const durationInSeconds = parseInt(durationInSecondsInput);
-      this.duration = durationInSeconds * 1000;
+      this.#duration = durationInSeconds * 1000;
 
       if (!this.startTime) {
         this.startTime = Date.now();
@@ -30,42 +42,20 @@ export class ClicksModule extends Module {
         );
 
         setTimeout(() => {
-          document.addEventListener("click", this.handleClick);
-          document.addEventListener("dblclick", this.handleDoubleClick);
+          document.addEventListener("click", handleClickClicksModule);
+          document.addEventListener("dblclick", handleDoubleClickClicksModule);
         }, 0);
         this.createClicksInfoWindow();
 
         setTimeout(() => {
           this.showStats();
           this.cleanup();
-        }, this.duration);
+        }, this.#duration);
       }
     } else if (durationInSecondsInput === null) {
       alert("Операция отменена пользователем.");
     } else {
       alert("Некорректный ввод. Пожалуйста, введите число.");
-    }
-  }
-
-  //  Обработчик для одиночных кликов.
-  //  Увеличивает счетчик одиночных кликов и обновляет окно статистики.
-  handleClick = (event) => {
-    event.preventDefault();
-    if (this.startTime) {
-      this.clickCount++;
-      console.log("Зафиксирован одинарный клик.");
-      this.updateClicksInfoWindow();
-    }
-  };
-
-  // Обработчик для двойных кликов.
-  // Увеличивает счетчик двойных кликов и обновляет окно статистики.
-  handleDoubleClick(event) {
-    event.preventDefault();
-    if (this.startTime) {
-      this.doubleClickCount++;
-      console.log("Зафиксирован двойной клик.");
-      this.updateClicksInfoWindow();
     }
   }
 
@@ -84,13 +74,13 @@ export class ClicksModule extends Module {
     clicksInfo.innerHTML = `
             <h2>Статистика кликов</h2>
             <p>Одиночные клики: <span id="single-clicks">${
-              this.clickCount
+              this.#clickCount
             }</span></p>
             <p>Двойные клики: <span id="double-clicks">${
-              this.doubleClickCount
+              this.#doubleClickCount
             }</span></p>
             <p>Всего кликов: <span id="total-clicks">${
-              this.clickCount + this.doubleClickCount
+              this.#clickCount + this.#doubleClickCount
             }</span></p>
             <button id="close-btn">Закрыть</button>
         `;
@@ -110,20 +100,20 @@ export class ClicksModule extends Module {
 
   // Обновляет данные в окне статистики.
   updateClicksInfoWindow() {
-    document.getElementById("single-clicks").textContent = this.clickCount;
+    document.getElementById("single-clicks").textContent = this.#clickCount;
     document.getElementById("double-clicks").textContent =
-      this.doubleClickCount;
+      this.#doubleClickCount;
     document.getElementById("total-clicks").textContent =
-      this.clickCount + this.doubleClickCount;
+      this.#clickCount + this.#doubleClickCount;
   }
 
   // Очищает данные и удаляет обработчики событий.
   cleanup() {
-    document.removeEventListener("click", this.handleClick);
-    document.removeEventListener("dblclick", this.handleDoubleClick);
+    document.removeEventListener("click", handleClickClicksModule);
+    document.removeEventListener("dblclick", handleDoubleClickClicksModule);
     this.startTime = null;
-    this.duration = 0;
-    this.clickCount = 0;
-    this.doubleClickCount = 0;
+    this.#duration = 0;
+    this.#clickCount = 0;
+    this.#doubleClickCount = 0;
   }
 }
