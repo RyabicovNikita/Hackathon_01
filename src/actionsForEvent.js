@@ -1,3 +1,5 @@
+import HistoryMenu from "./history";
+
 //Функция обработки ПКМ
 export function onContextMenu(event) {
   event.preventDefault();
@@ -16,6 +18,8 @@ export function onElementMenuClick() {
     alert(`Произошла ошибка при вызове действия '${this.type}'`);
     console.error(`Произошла ошибка при вызове действия '${this.type}'`);
   }
+  const textButton = this.text;
+  //Блок истории действий
+  const historyBlock = new HistoryMenu(textButton);
+  historyBlock.addNewRow();
 }
-
-
