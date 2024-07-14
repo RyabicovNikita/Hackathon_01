@@ -1,11 +1,11 @@
 
 import { onContextMenu } from './actionsForEvent';
-import { ContextMenu } from './menu';
+import ContextMenu from './menu';
 import BackgroundModule from './modules/background.module';
 import ShapeModule from './modules/shape.module';
-import MessageModule from './modules/message.module'
-import { ClicksModule } from './modules/clicks.module'
-import './styles.css'
+import MessageModule from './modules/message/message.module';
+import ClicksModule from './modules/clicks/clicks.module';
+import './styles.css';
 
 //Создаём экземпляр класса контестного меню
 const contextMenu = new ContextMenu();

@@ -2,7 +2,7 @@ import { Module } from './core/module'
 import { Menu } from './core/menu'
 import { onElementMenuClick } from './actionsForEvent';
 
-export class ContextMenu extends Menu {
+export default class ContextMenu extends Menu {
     constructor(selector = "#menu") {
         super(selector);
     }

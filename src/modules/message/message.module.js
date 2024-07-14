@@ -1,6 +1,7 @@
-import { Module } from '../core/module'
-import { random } from '../utils'
-import { getRandomColor } from '../utils'
+import { Module } from '../../core/module'
+import { random } from '../../utils'
+import { getRandomColor } from '../../utils'
+import '../message/message.css'
 
 export default class MessageModule extends Module {
   constructor(type, text) {

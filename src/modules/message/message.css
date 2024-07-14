@@ -1,0 +1,14 @@
+.message-element {
+    display: flex;
+    font-size: 32px;
+    font-weight: bold;
+    border: solid black 5px;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 450px;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
