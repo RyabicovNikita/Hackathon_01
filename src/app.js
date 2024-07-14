@@ -5,7 +5,7 @@ import BackgroundModule from './modules/background.module';
 import ShapeModule from './modules/shape/shape.module';
 import MessageModule from './modules/message/message.module';
 import ClicksModule from './modules/clicks/clicks.module';
-import MenuColorChanger from './modules/menu.color.changer';
+import MenuColorChangerModule from './modules/menu.color.changer.module';
 import './styles.css';
 
 //Создаём экземпляр класса контестного меню
@@ -19,7 +19,7 @@ contextMenu.add(backgroundModule);
 const shapeModule = new ShapeModule('shape', 'Поменять фигуру');
 contextMenu.add(shapeModule);
 
-const changeColor = new MenuColorChanger('color', 'Сменить цвет контекстного меню');
+const changeColor = new MenuColorChangerModule('color', 'Сменить цвет контекстного меню');
 contextMenu.add(changeColor);
 
 const clicksModule = new ClicksModule('clicks', 'Считать клики');

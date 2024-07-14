@@ -2,7 +2,7 @@
 import { Module } from '../core/module.js'
 import { getRandomColor } from '../utils.js'
 
-export default class MenuColorChanger extends Module {
+export default class MenuColorChangerModule extends Module {
     trigger() {
         const menu = document.querySelector('.menu');
         const menuItems = document.querySelectorAll('.menu-item');
