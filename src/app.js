@@ -1,5 +1,8 @@
-import { onContextMenu } from './actionsForEvent'
-import { ContextMenu } from './menu'
+
+import { onContextMenu } from './actionsForEvent';
+import { ContextMenu } from './menu';
+import BackgroundModule from './modules/background.module';
+import ShapeModule from './modules/shape.module';
 import MessageModule from './modules/message.module'
 import { ClicksModule } from './modules/clicks.module'
 import './styles.css'
@@ -7,12 +10,17 @@ import './styles.css'
 //Создаём экземпляр класса контестного меню
 const contextMenu = new ContextMenu();
 
-// Создаём экземпляры класса ClicksModule и добавляем его в меню
-const clicksModule = new ClicksModule('clicks', 'Считать клики');
-const randomMessage = new MessageModule('randomMessage', 'Cлучайное сообщение');
-
 //Здесь вызываем метод .add, передавая туда модуль, тем самым добавляя его в меню (не забывая импортировать)
+//Добавляем модуль в контекстное меню
+const backgroundModule = new BackgroundModule('background', 'Поменять цвет');
+contextMenu.add(backgroundModule);
+
+const shapeModule = new ShapeModule('shape', 'Поменять фигуру');
+contextMenu.add(shapeModule);
+
+const clicksModule = new ClicksModule('clicks', 'Считать клики');
 contextMenu.add(clicksModule);
+const randomMessage = new MessageModule('randomMessage', 'Cлучайное сообщение');
 contextMenu.add(randomMessage);
 
 //Listener на вызов контекстного меню при нажатии ПКМ
