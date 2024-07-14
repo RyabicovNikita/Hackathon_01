@@ -38,8 +38,54 @@ body {
 }
 
 .menu .menu-item:hover {
-  background: #343434;
+    background: #343434;
 }
+
+#clicks-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    padding: 24px;
+    width: 300px;
+  }
+  
+  #clicks-info h2 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  
+  #clicks-info p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  #clicks-info span {
+    color: #4CAF50;
+    font-weight: 500;
+  }
+  
+  #clicks-info button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #clicks-info button:hover {
+    background-color: #3e8e41;
+  }
 
 .message-element {
   display: flex;
