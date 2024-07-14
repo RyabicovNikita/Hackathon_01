@@ -33,6 +33,9 @@ export default class ShapeModule extends Module {
         setTimeout(() => {
             shape.style.opacity = 0;
             shape.style.transition = 'opacity 10s';
+            setTimeout(() => {
+                shape.remove();
+            }, 10000);
         }, 0);
     }
 }
